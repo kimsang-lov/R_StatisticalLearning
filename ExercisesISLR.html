@@ -1,0 +1,790 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Exercises</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9c827f25-ddc1-450a-a8e6-e00c72f2dab5" class="page sans"><header><h1 class="page-title">Exercises</h1><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M7.01356 14.0001C8.8042 14.0001 10.5958 13.3107 11.9575 11.9324C14.681 9.21201 14.6808 4.7603 11.9571 2.04013C9.23336 -0.680043 4.77573 -0.680043 2.05199 2.04013C0.727519 3.36277 0 5.13301 0 6.99553C0 8.8764 0.727811 10.6285 2.05199 11.9509C3.43207 13.3106 5.22243 14.0001 7.01356 14.0001ZM3.72947 7.00914V8.461V8.65543H3.92382H5.34563H8.2794H8.4738V8.461V5.52541V3.37947V3.18502H8.2794H6.82747H6.63307V3.37947V6.81467H3.92382H3.72947V7.00914ZM1.83985 6.99553C1.83985 5.61698 2.38099 4.32597 3.36061 3.3477C5.36746 1.34337 8.64803 1.34062 10.6585 3.33944C10.6613 3.34219 10.6639 3.34494 10.6668 3.3477C12.676 5.3546 12.6763 8.63642 10.6668 10.6434C8.65705 12.6504 5.37031 12.6504 3.36061 10.6434C2.38099 9.66506 1.83985 8.37408 1.83985 6.99553Z"></path></svg></span>Created</th><td><time>@September 6, 2022 10:21 AM</time></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Class</th><td></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Type</th><td></td></tr><tr class="property-row property-row-file"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFile"><path d="M5.94578,14 C4.62416,14 3.38248,13.4963 2.44892,12.585 C1.514641,11.6736 1,10.4639 1,9.17405 C1.00086108,7.88562 1.514641,6.67434 2.44892,5.76378 L7.45612,0.985988 C8.80142,-0.327216 11.1777,-0.332396 12.5354,0.992848 C13.9369,2.36163 13.9369,4.58722 12.5354,5.95418 L8.03046,10.2414 C7.16278,11.0877 5.73682,11.0894 4.86024,10.2345 C3.98394,9.37789 3.98394,7.98769 4.86024,7.1327 L6.60422,5.4317 L7.87576,6.67196 L6.13177,8.37297 C6.01668,8.48539 6.00003,8.61545 6.00003,8.68335 C6.00003,8.75083 6.01668,8.88103 6.13177,8.99429 C6.36197,9.21689 6.53749,9.21689 6.76768,8.99429 L11.2707,4.70622 C11.9645,4.03016 11.9645,2.91757 11.2638,2.23311 C10.5843,1.57007 9.40045,1.57007 8.72077,2.23311 L3.71342,7.0109 C3.12602,7.58406 2.79837,8.35435 2.79837,9.17405 C2.79837,9.99459 3.12602,10.7654 3.72045,11.3446 C4.90947,12.5062 6.98195,12.5062 8.17096,11.3446 L10.41911,9.15165 L11.6906,10.3919 L9.4425,12.585 C8.50808,13.4963 7.2664,14 5.94578,14 Z"></path></svg></span>Materials</th><td></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCheckbox"><path d="M0,3 C0,1.34314 1.34326,0 3,0 L11,0 C12.6567,0 14,1.34314 14,3 L14,11 C14,12.6569 12.6567,14 11,14 L3,14 C1.34326,14 0,12.6569 0,11 L0,3 Z M3,1.5 C2.17139,1.5 1.5,2.17157 1.5,3 L1.5,11 C1.5,11.8284 2.17139,12.5 3,12.5 L11,12.5 C11.8286,12.5 12.5,11.8284 12.5,11 L12.5,3 C12.5,2.17157 11.8286,1.5 11,1.5 L3,1.5 Z M2.83252,6.8161 L3.39893,6.27399 L3.57617,6.10425 L3.92334,5.77216 L4.26904,6.10559 L4.44531,6.27582 L5.58398,7.37402 L9.28271,3.81073 L9.45996,3.64008 L9.80664,3.3056 L10.1538,3.63989 L10.3311,3.81067 L10.8936,4.35303 L11.0708,4.52399 L11.4434,4.88379 L11.0708,5.24353 L10.8936,5.41437 L6.1084,10.0291 L5.93115,10.2 L5.58398,10.5344 L5.23682,10.2 L5.05957,10.0292 L2.83057,7.87946 L2.65283,7.70801 L2.27832,7.34674 L2.6543,6.98694 L2.83252,6.8161 Z"></path></svg></span>Reviewed</th><td><div class="checkbox checkbox-off"></div></td></tr></tbody></table></header><div class="page-body"><h2 id="90db85eb-9d0d-4309-849d-8bbd8815989a" class=""><strong>Conceptual</strong></h2><h3 id="6cba9c32-3044-4a7c-9d89-7a8815b3d714" class=""><strong>1. For each of parts (a) through (d), indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer.</strong></h3><p id="6fea1a27-797e-4dd6-8015-c67fdac0055b" class="">
+</p><ul id="1e24cfc1-90e5-42e2-989e-f9dcb7ac9899" class="toggle"><li><details open=""><summary><strong>(a) The sample size n is extremely large, and the number of predictors p is small.</strong></summary><ul id="a79afb62-b657-424e-a2e8-5cfc6affdc66" class="bulleted-list"><li style="list-style-type:disc"><strong>Better</strong> : A large sample size means a flexible model will be able to better fit the data</li></ul></details></li></ul><p id="0d237974-1b98-47aa-bf64-14649e2691cb" class="">
+</p><ul id="af03e456-9dbe-4b82-b88f-2493d44682bd" class="toggle"><li><details open=""><summary><strong>(b) The number of predictors p is extremely large, and the number of observations n is small.</strong></summary><ul id="64079dd4-b1d5-4402-8191-2b8eb9fa267e" class="bulleted-list"><li style="list-style-type:disc"><strong>Worse</strong> : Fitting a more flexible model with greater number of predictors and small number of observations would lead to a phenomenon called overfitting. Flexible methods generally do better when large datasets are available.</li></ul></details></li></ul><p id="322b1346-b1db-4187-99b1-eb89e2c6a265" class="">
+</p><ul id="9ea3f0de-69d9-4ccb-b5e2-25ced1a605d5" class="toggle"><li><details open=""><summary><strong>(c) The relationship between the predictors and response is highly non-linear.</strong></summary><ul id="b34166d6-0e5c-40d4-80d1-342057adc73d" class="bulleted-list"><li style="list-style-type:disc"><strong>Better</strong> : Flexible methods perform better on non-linear datasets as they have more degrees of freedom to approximate a non-linear</li></ul></details></li></ul><p id="e0ff5b46-99b3-48e4-9a4f-2047cd27a7e9" class="">
+</p><ul id="5cc94816-d938-4af5-94e7-f2df18ff9ebc" class="toggle"><li><details open=""><summary><strong>(d) The variance of the error terms, i.e. σ^2 = Var(ε), is extremely high.</strong></summary><ul id="5e530d5a-d049-485a-a124-ef52c2c14e97" class="bulleted-list"><li style="list-style-type:disc"><strong>Worse</strong> : A flexible model would likely overfit. The model would follow the errors in the data. This hints that f is linear and so a simpler model would better be able to estimate .</li></ul></details></li></ul><p id="34ce0040-c28a-440b-8a06-22e49352609c" class=""><div class="indented"><p id="e09359bd-5100-403a-8c93-76090e60965b" class="">
+</p><p id="9bfa0ad2-d76d-434b-8f2b-e0d111517ebf" class="">
+</p></div></p><h3 id="1e194878-2134-4eb3-b930-264808521942" class=""><strong>2. Explain whether each scenario is a classification or regression problem, and indicate whether we are most interested in inference or prediction. Finally, provide n and p</strong></h3><p id="276091ac-90c3-4ae8-8c8e-afba5a21acee" class="">
+</p><ul id="1131294e-a62e-4952-8d19-4e7edccb11ce" class="toggle"><li><details open=""><summary><strong>(a) We collect a set of data on the top 500 firms in the US. For each firm we record profit, number of employees, industry and the CEO salary. We are interested in understanding which factors affect CEO salary.</strong></summary><ul id="10a7dd55-87a5-4963-b573-f583a91020f2" class="bulleted-list"><li style="list-style-type:disc"><strong>Regression</strong> : The response in this case is quantitative</li></ul><ul id="4bc9a6af-cc59-4cf2-8f0e-fe984194a3ab" class="bulleted-list"><li style="list-style-type:disc"><strong>Inference</strong> : We want to understand which factors affect CEO salary</li></ul><ul id="2ae46e1f-d3f2-4690-9e3b-4c662fe523e8" class="bulleted-list"><li style="list-style-type:disc">n = 500, p = profit, number of employees, industry, and CEO salary</li></ul><p id="6adc5fd1-9b62-4152-98dc-cf4e1504e8c2" class="">
+</p></details></li></ul><ul id="1eddc64a-7f35-4374-8d17-f6906ebb7578" class="toggle"><li><details open=""><summary><strong>(b) We are considering launching a new product and wish to know whether it will be a success or a failure. We collect data on 20 similar products that were previously launched. For each product we have recorded whether it was a success or failure, price charged for the product, marketing budget, competition price, and ten other variables.</strong></summary><ul id="b00ba973-90f0-46fb-a696-c0919b0fca2c" class="bulleted-list"><li style="list-style-type:disc"><strong>Classification</strong> : Responses are “success” and “failure”</li></ul><ul id="8d8ddbf7-38d8-4832-b35b-ec4529c7a5a6" class="bulleted-list"><li style="list-style-type:disc"><strong>Prediction</strong> : We wish to predict whether the new product will be a success or failure</li></ul><ul id="29acfccd-ce3b-496a-8985-d49d2999bfb2" class="bulleted-list"><li style="list-style-type:disc">n = 20, p = Binary value(success &amp; failure), price, marketing budget, competition price, and 10 other variables</li></ul></details></li></ul><p id="d7e8cc53-2fb9-463b-a43f-cc90d6685194" class="">
+</p><ul id="eb65f72d-fcc1-4e58-826a-87e9e7862a4d" class="toggle"><li><details open=""><summary><strong>(c) We are interested in predicting the % change in the USD/Euro exchange rate in relation to the weekly changes in the world stock markets. Hence we collect weekly data for all of 2012. For each week we record the % change in the USD/Euro, the % change in the US market, the % change in the British market, and the % change in the German market.</strong></summary><ul id="7f801ab5-cb11-4b5f-9218-ceb66c5ac3ea" class="bulleted-list"><li style="list-style-type:disc"><strong>Regression</strong> : % change in the USD/Euro is a quantitative value</li></ul><ul id="3c390f59-4a8a-42ae-9808-5eca54b534ed" class="bulleted-list"><li style="list-style-type:disc"><strong>Prediction</strong> : We want to predict the % change</li></ul><ul id="bf915316-70b4-45dc-9a40-5f68ea0468ee" class="bulleted-list"><li style="list-style-type:disc">n = 52(weeks), p = % change in the USD/Euro, % change in the US market, % change in the British market, % change in German market</li></ul></details></li></ul><p id="44ca5d62-f8c8-4288-9ae4-5c6524a6a4c1" class="">
+</p><h3 id="7090cc79-2c6d-4571-89b1-2d8753738133" class=""><strong>3. We now revisit thee bias-variance decomposition</strong></h3><ul id="5b6a31f0-ecc0-4fc8-8f69-43d15afaeeb8" class="toggle"><li><details open=""><summary><strong>(a)  Provide a sketch of typical (squared) bias, variance, training error, test error, and Bayes (or irreducible) error curves, on a single plot, as we go from less flexible statistical learning methods towards more flexible approaches. The x-axis should represent the amount of flexibility in the method, and the y-axis should represent the values for each curve. There should be five curves. Make sure to label each one.</strong></summary><figure id="7ff6ebd0-83cc-4d49-b42c-d0588d32e294" class="image"><a href="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Image_5.jpeg"><img style="width:1920px" src="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Image_5.jpeg"/></a></figure></details></li></ul><p id="42d2b593-56c4-450b-9f45-420fd99d4405" class="">
+</p><ul id="9e2d8322-3671-429c-bc2e-c12329efba4e" class="toggle"><li><details open=""><summary><strong>(b)  Explain why each of the five curves has the shape displayed in
+part (a).</strong></summary><ul id="9d282a4b-7d54-46b1-ae59-1ee9297c54b4" class="bulleted-list"><li style="list-style-type:disc">The training MSE declines monotonically as flexibility increases, this is because as the flexibility increases the <em>f</em> curve fits the observed data more closely.</li></ul><ul id="7df88974-0f1c-4fbc-bef2-485778b51e47" class="bulleted-list"><li style="list-style-type:disc">The test MSE initially declines as flexibility increases but at some point it levels off and then starts to increase again (U-shape), this is because when <em>f</em> curve yields a small training MSE but the largest test MSE we are actually overfitting the data (our procedure tries too hard to find patterns in the training data that are caused by chance rather than by true properties of the unknown <em>f</em>)</li></ul><ul id="09bc1dd3-2430-4ac9-9ed1-e29c56a19213" class="bulleted-list"><li style="list-style-type:disc">The squared bias decrease and the variance increases; Generally, as we use more flexible methods, the variance will increase and the bias will decrease</li></ul><ul id="d87f525a-48b2-447f-8f10-43222c8aaa3b" class="bulleted-list"><li style="list-style-type:disc">The irreducible error is a constant, so it is parallel line. This curve lies below the test MSE curve because the expected test MSE will always be greater than Var(ε).</li></ul><p id="2a2cfa02-a00b-42ab-9e71-7b1509fb4c69" class="">
+</p></details></li></ul><p id="4ab1eeb5-4e67-4656-a7df-f7df312be15c" class="">
+</p><h3 id="4392d7ee-720e-4fc6-bb79-dc2056f9344a" class="">4. You will now think of some real-life applications for statistical learn-
+ing.</h3><ul id="41bef6f4-7721-4af8-9b65-8345ee56ac15" class="toggle"><li><details open=""><summary><strong>(a)  Describe three real-life applications in which classification might
+be useful. Describe the response, as well as the predictors. Is the
+goal of each application inference or prediction? Explain your
+answer.</strong></summary><ol type="1" id="d25a17e8-ca9a-45fd-a709-c2f7132bc9c0" class="numbered-list" start="1"><li>- Iris Flower: are they “Virginica,” “Setosa,” or “Versicolor” species.
+- Predictor: length and width of petals and sepals.
+- Goal: Prediction</li></ol><ol type="1" id="e86575cd-0d2e-4d23-8af7-ab93355e819e" class="numbered-list" start="2"><li>- New Books: Fan-favorites or not based on Goodreads rating
+- Predictors: page length, genre, author
+- Goal: Prediction</li></ol><ol type="1" id="02e4df85-d652-4954-92e0-fe15e1d6d8c2" class="numbered-list" start="3"><li>- Breast Cancer: Determine whether or not patients have breast cancer
+- Predictors: mammogram scan, age, family history, lifestyle and other variables
+- Goal: Prediction</li></ol><p id="cd9b095d-ab82-46f8-ab50-a0184c0032c2" class="">
+</p></details></li></ul><ul id="92dc8ec6-41cd-4d05-956d-f6e8db1d6292" class="toggle"><li><details open=""><summary><strong>(b)  Describe three real-life applications in which regression might
+be useful. Describe the response, as well as the predictors. Is the
+goal of each application inference or prediction? Explain your
+answer.</strong></summary><ol type="1" id="90205e78-ff99-47de-85fe-0d0f210de44c" class="numbered-list" start="1"><li>- House Price: to infer the impact of asset on house price
+- Predictors: house features, median income for the area, etc.
+- Goal: Inference</li></ol><ol type="1" id="6fc03f44-c7d1-4b0b-b779-c7bd5fa310eb" class="numbered-list" start="2"><li>- Sales: predict the sales of a product
+- Predictors: marketing data such as TV, radio or newspaper
+- Goals: Prediction</li></ol><ol type="1" id="d89074e8-433f-4305-b56a-bbb7e342ba81" class="numbered-list" start="3"><li>- Retail Price Optimization: predict the optimal price for products
+- Predictors: competitive price, consumer demand, transactions, customer review
+- Goals: Prediction</li></ol></details></li></ul><p id="a46e537f-d551-47d8-bb12-41240f89bcdc" class="">
+</p><h3 id="76f48fe4-8232-4036-aed4-143032e64930" class="">5. What are the advantages and disadvantages of a very flexible (versus a less flexible) approach for regression or classification? Under what circumstances might a more flexible approach be preferred to a less flexible approach? When might a less flexible approach be preferred?</h3><p id="f9d8dbe8-6bf9-4e41-96d0-12959d8fd42c" class="">
+</p><h3 id="73bcc16e-6dc5-4163-825d-b428da793f29" class="">6. Describe the differences between a parametric and a non-parametric statistical learning approach. </h3><p id="be3c9351-6f9c-4885-8b8c-5e1860ad7622" class="">
+</p><ul id="2869435e-cd2f-40d4-a2e3-8a9e8edf4c31" class="bulleted-list"><li style="list-style-type:disc">Flexible methods works well when the underlying function is non-linear. The predictions in general have a lower bias but can a higher variance, as these models are more likely to overfit the data</li></ul><ul id="2fc9dc74-d509-4619-bb3e-2cfd21ba3166" class="bulleted-list"><li style="list-style-type:disc">Less flexible methods do not tend to overfit the data, but can have a higher bias when the underlying function is a non-linear. They can also use fewer observations and parameters particularly when it is assumed that the underlying functions is linear. Flexible methods tend to require a larger number of observations and parameters, and can lead to overfitting</li></ul><ul id="86f8d523-0832-425b-ac58-7667355232a7" class="bulleted-list"><li style="list-style-type:disc">Flexible methods (non-parametric) are preferable when we make no assumptions about the function to be estimated. Most real-life relationship are non-linear and so a non-parametric approach is better suited to modeling them. Flexible model by their nature are more complex and less interpretable than their linear counterparts, so even though their predictions might be more accurate, we may not be able to explain why it has made those predictions (a black box model)</li></ul><ul id="86291245-5507-4ef4-a9ea-40439fd6ef7d" class="bulleted-list"><li style="list-style-type:disc">Less Flexible methods (parametric) are useful if we assume or know that the underlying function is linear. As a linear relationship is assumed, the model needs to predict fewer parameters than the non-parametric method. Additionally, these models are more interpretable, and so will be preferred when we are interested in making inferences or the interpretability of the results</li></ul><p id="98a64c1c-3336-4477-b89b-eabcc8b701d6" class="">
+</p><p id="0b22d319-6c90-4840-b013-560461fbe504" class="">
+</p><h3 id="1513b72b-3151-4af5-a92c-67a4fa291165" class="">7. The table below provides a training data set containing six observations, three predictors, and one qualitative response variable.</h3><figure id="7fcc80c0-bffb-410e-b78b-5a93ce29f47c" class="image"><a href="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled.png"><img style="width:432px" src="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled.png"/></a></figure><p id="4ca32f9b-bb74-47ac-a9b7-9d96ed5223b4" class=""><strong>Suppose we wish to use this data set to make a prediction for Y when X1 = X2 = X3 = 0 using K-nearest neighbors.</strong></p><p id="715a0074-798b-4e98-8b60-55f8720b7468" class="">###############################</p><p id="3f815f13-e739-4054-8577-7ded6fa85904" class="">
+</p><h3 id="765d5076-d055-4286-8025-f3f5d18557b9" class="">8. This exercise relates to the College data set, which can be found in the file College.csv on the book website. It contains a number of variables for 777 different universities and colleges in the US. The variables are</h3><ul id="65a966d0-f253-49ee-9766-c7cbea83b41d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">Private</mark> : Public/private indicator</li></ul><ul id="2a6b463a-89f1-4c17-9dea-bda68b2f1f1b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">Apps</mark> : Number of applications received</li></ul><ul id="f6607b6d-e947-42d7-9980-3402bd5b37d8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">Accept</mark> : Number of applicants accepted</li></ul><ul id="515226dc-a27f-445f-babb-9d1f6e35fd24" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">Enroll</mark> : Number of new students enrolled</li></ul><ul id="98735874-4eb7-4b74-8946-fb1e614042c4" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">Top10perc</mark> : New students from top 10 % of high school class</li></ul><ul id="44a14844-3707-44bb-87c2-279f78cec1cf" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">Top25perc</mark> : New students from top 25 % of high school class</li></ul><ul id="0f6c8af8-fa2f-4546-b3e2-3a9a359e1bfb" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">F.Undergrad </mark>: Number of full-time undergraduates</li></ul><ul id="48a117e7-edd2-470f-8750-3f4a461c3e62" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">P.Undergrad</mark> : Number of part-time undergraduates</li></ul><ul id="9ee12fd3-2a02-4f04-9668-237e58cafb89" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">Outstate</mark> : Out-of-state tuition</li></ul><ul id="1f3af711-a9c5-4195-8056-c723c0c46fab" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">Room.Board</mark> : Room and board costs</li></ul><ul id="090a101e-4663-49c2-9575-383ab38077bb" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">Books</mark> : Estimated book costs</li></ul><ul id="4ccb85bc-6470-498e-8bce-a9ae64380849" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">Personal</mark> : Estimated personal spending</li></ul><ul id="c4d0b2d4-eb33-4cec-8190-ecc0dd1dc2b1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">PhD</mark> : Percent of faculty with Ph.D.’s</li></ul><ul id="dd26cc1e-0a9b-48a2-9f5a-67dcd1e4f00b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">Terminal</mark> : Percent of faculty with terminal degree</li></ul><ul id="7f4e2490-15b9-4246-9053-f4152ff13974" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">S.F.Ratio</mark> : Student/faculty ratio</li></ul><ul id="d04c4870-59d0-4e51-8fd4-014a998da533" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">perc.alumni</mark> : Percent of alumni who donate</li></ul><ul id="7d34a67c-2889-476a-bbfa-a7fdbbf5ddc6" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">Expend</mark> : Instructional expenditure per student</li></ul><ul id="fe5f0d55-7eb4-420f-83c2-2980efbabf5a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">Grad.Rate</mark> : Graduation rate</li></ul><p id="e0bfcb3f-dcac-4f03-aacb-b6a9c5d8f6f7" class="">
+</p><ul id="247d1965-6942-474d-bd64-e0a4ba31d754" class="toggle"><li><details open=""><summary><strong>(a) Use the read.csv() function to read the data into R. Call the loaded data college. Make sure that you have the directory set to the correct location for the data.</strong></summary><pre id="c4a4cc15-007c-4093-bf47-be0cf919daf7" class="code code-wrap"><code>library(ISLR)
+college &lt;- College
+head(college)</code></pre></details></li></ul><p id="9a927a7f-8292-4f39-8de2-bca0f69730c7" class="">
+</p><ul id="e05dbdcf-65b0-4599-9cf9-bfed62363813" class="toggle"><li><details open=""><summary>(b) <strong>Look at the data using the View() function. You should notice that the first column is just the name of each university. We don’t really want R to treat this as data. However, it may be handy to have these names for later. Try the following commands:</strong></summary><pre id="f9bd4265-6c7f-4d62-829a-993b80f0e4e7" class="code code-wrap"><code>View(college)
+row.names &lt;- rownames(college)
+row.names</code></pre></details></li></ul><p id="8c1c576e-1dbb-4bef-a4a3-ee2f380bfb11" class="">
+</p><ul id="29718e80-c0f6-42c3-9f89-547ddfdbf7cd" class="toggle"><li><details open=""><summary>(c) </summary><p id="30f86fc7-9634-479c-860b-796db719627c" class=""><strong>i. Use the summary() function to produce a numerical summary of the variables in the data set.</strong></p><p id="65dcdaad-92f5-4340-9dbf-60c50547878e" class="">
+</p><p id="0354a8cb-2f1e-471d-bf44-d72b79175fd0" class=""><strong>ii. Use the pairs() function to produce a scatterplot matrix of the first ten columns or variables of the data. Recall that you can reference the first ten columns of a matrix A using A[,1:10].</strong></p><pre id="82466460-fb02-49cf-af4a-039389bc50e0" class="code"><code>summary(college)
+
+pairs(college[, 1:10])</code></pre><figure id="28864ef1-2a89-4707-99d3-9620c2384f71" class="image"><a href="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%201.png"><img style="width:761px" src="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%201.png"/></a></figure><p id="22d404fb-fdcb-4686-abcd-d035b523e631" class="">
+</p><p id="e798a86b-826e-4cb7-a6ff-eca357a0d498" class=""><strong>iii. Use the plot() function to produce side-by-side boxplots of Outstate versus Private.</strong></p><pre id="cca9879e-edde-4518-b845-76ec69461ddb" class="code"><code>boxplot(Outstate~Private, data = college)</code></pre><p id="2ee067c2-d808-433a-bd64-370af79d195c" class="">
+</p><p id="f06a1a24-c90d-4b69-b8e4-7b9c64aa2343" class="">i<strong>v. Create a new qualitative variable, called Elite, by binning the Top10perc variable. We are going to divide universities into two groups based on whether or not the proportion
+of students coming from the top 10% of their high school classes exceeds 50 %.</strong></p><pre id="36a6eeb4-f3c7-467d-b4e8-889248a15e3b" class="code"><code>Elite &lt;- rep(&quot;No&quot;, nrow(college))
+
+Elite[Top10perc &gt; 50] &lt;- &quot;Yes&quot;
+Elite &lt;- as.factor(Elite)
+
+college &lt;- data.frame(college, Elite)</code></pre><p id="cbeb7576-a45f-4559-aef5-7b263dcbb568" class=""><strong>Use the summary() function to see how many elite universities there are. Now use the plot() function to produce side-by-side boxplots of Outstate versus Elite.</strong></p><pre id="085fa1c1-eb10-4247-b1cd-2498c1acc09c" class="code"><code>summary(Elite)
+
+boxplot(Outstate~Elite)</code></pre><figure id="5b1689c9-ca8d-48fd-bf2d-ea50cbb21e5e" class="image"><a href="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%202.png"><img style="width:975px" src="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%202.png"/></a></figure><p id="3fe6882e-2ee5-4630-a0bc-0b6454009a29" class="">
+</p><p id="d15651f6-f695-4759-bbe1-46d07a629578" class=""><strong>v. Use the hist() function to produce some histograms with differing numbers of bins for a few of the quantitative variables. You may find the command par(mfrow = c(2, 2)) useful: it will divide the print window into four regions so that four plots can be made simultaneously. Modifying the arguments to this function will divide the screen in other ways.</strong></p><pre id="3ae6a3f6-bb35-44f8-b7fb-262a2d662cf2" class="code"><code>par(mfrow = c(2, 2))
+
+hist(Apps, xlim = c(0, 25000), xlab = &quot;Applications&quot;, breaks = 20)
+hist(Enroll)
+hist(Top10perc, breaks = 25, xlab = &quot;Pct. new students from top 10% of H.S. class&quot;)
+hist(Outstate, xlab=&quot;Out-of-state tuition&quot;, ylab=&quot;Amount&quot;, main = &quot;Outstate&quot;)</code></pre><figure id="2155d795-0d8f-4fac-9dd1-138bc2dabfe8" class="image"><a href="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%203.png"><img style="width:955px" src="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%203.png"/></a></figure><ul id="b3ba3eef-ba92-4818-9ebd-23fe33746754" class="bulleted-list"><li style="list-style-type:disc">Histogram of Apps(Number of applications received) is highly right skewed. This shows that most universities received 5000 or fewer applications. The mean number of applications received will also be heavily skewed.</li></ul><ul id="89095eba-d0f2-4f19-8a05-88bdae31820a" class="bulleted-list"><li style="list-style-type:disc">Histogram for Top10Perc(Number of new students who are the top 10% of their class) is also right skewed; this shows that only a few universities get a majority of their new students from this cohort </li></ul></details></li></ul><p id="b2778065-cf48-4056-89c4-48b9613d2890" class="">
+</p><h3 id="7e970f79-9a5c-44ab-8cc3-72bf412626f8" class="">9. This exercise involves the Auto data set studied in the lab. Make sure that the missing values have been removed from the data</h3><ul id="b72c019e-0579-4d7f-ab42-35e324f91f60" class="toggle"><li><details open=""><summary><strong>(a)  Which of the predictors are quantitative, and which are qualitative?</strong></summary><ul id="4724a665-b5b3-463e-83b8-d9cff1d19833" class="bulleted-list"><li style="list-style-type:disc"><strong>Quantitative</strong>: mpg, cylinder, displacement, horsepower, weight, acceleration, year</li></ul><ul id="ff6da042-6ad1-45e5-9e13-4aa0a3b9250c" class="bulleted-list"><li style="list-style-type:disc"><strong>Qualitative</strong>: name, origin</li></ul></details></li></ul><ul id="6ab7146c-059c-4176-83f0-88104e394bf3" class="toggle"><li><details open=""><summary><strong>(b) 1. What is the range of each quantitative predictor? You can answer this using the range() function.</strong></summary><ul id="67fdd2f3-bb75-4ebe-91f2-769910c910a6" class="bulleted-list"><li style="list-style-type:disc">range() function: used to find the difference between maximum and minimum</li></ul></details></li></ul><ul id="97101b11-35eb-49fe-8959-5e793af3f14d" class="toggle"><li><details open=""><summary><strong>(c)  What is the mean and standard deviation of each quantitative predictor?</strong></summary><ul id="89984c9c-420f-49d6-a53c-5adeb351ebf3" class="bulleted-list"><li style="list-style-type:disc"><strong>Mean</strong>: is the average of a data set</li></ul><ul id="297c6d63-64f3-4ae7-bcf0-500215c8fade" class="bulleted-list"><li style="list-style-type:disc"><strong>Standard deviations</strong>: is a measure of how dispersed the data is in relation to the mean.</li></ul><pre id="f0620d71-3de3-4f85-9c6b-a8a00d354953" class="code"><code>auto &lt;- read.table(&quot;/Users/mac/Documents/R_statisticalLearning/Auto.data&quot;, header = T,
+                   na.strings = &quot;?&quot;, stringsAsFactors = T)
+
+sum(is.na(auto))
+colSums(is.na(auto))
+rowSums(is.na(auto))
+
+# Remove rows with missing value
+auto &lt;- na.omit(auto)
+
+mean(Auto$displacement) # 194.412
+sd(Auto$displacement) # 104.644</code></pre><p id="c6885670-0721-43c4-bac5-2d6fa25ca7df" class="">
+</p></details></li></ul><ul id="b5a73ee0-9939-46f7-a459-737e5e8d89bd" class="toggle"><li><details open=""><summary><strong>(d) Now remove the 10th through 85th observations. What is the range, mean, and standard deviation of each predictor in the subset of the data that remains?</strong></summary><pre id="8b57cfe4-fc91-49ae-859c-1e53d332d458" class="code"><code>sub_auto &lt;- auto[-seq(10, 85), ]
+
+mean(sub_auto$displacement) # 187.2405
+sd(sub_auto$mpg) # 99.67837</code></pre><p id="c839eac6-6b46-4c72-825e-cb1f550791a5" class="">
+</p></details></li></ul><ul id="efc0f11d-d77e-4892-bbfb-e208455659fd" class="toggle"><li><details open=""><summary><strong>(e) 1. Using the full data set, investigate the predictors graphically, using scatterplots or other tools of your choice. Create some plots highlighting the relationships among the predictors. Comment on your findings.</strong></summary><pre id="c279cb49-4bfe-4866-a0e2-b42bd7522666" class="code"><code>pairs(auto[, 1:7])
+
+cor(auto[, 1:7])</code></pre><figure id="feef284d-581c-40b1-ad6a-8d1d78cdae80" class="image"><a href="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%204.png"><img style="width:955px" src="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%204.png"/></a></figure><p id="d6ecd5d9-379c-4950-be94-44ede784a6ea" class="">
+</p><figure id="3a94a1bf-4aec-435d-a5d6-dd09e40d2d5c" class="image"><a href="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%205.png"><img style="width:672px" src="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%205.png"/></a></figure><p id="8ea1d646-e4e3-4f70-8206-94b08d57441e" class="">
+</p><ul id="2e35f0ca-4f29-4281-bbd9-a045ad34484a" class="bulleted-list"><li style="list-style-type:disc">From the pair plot and the correlation data, we can state there exists linear relationships between some of the variables</li></ul><ul id="b662a56f-2e95-4e13-8181-74c7ebdf4eba" class="bulleted-list"><li style="list-style-type:disc">For example, ‘<mark class="highlight-teal">mpg</mark>’ has strong negative linear relationships with ‘<mark class="highlight-teal">displacements</mark>’, ‘<mark class="highlight-teal">cylinders</mark>’ and ‘<mark class="highlight-teal">weight</mark>’. That is we can expect the ‘<mark class="highlight-teal">mpg</mark>’ of the car to decrease as their </li></ul><ul id="c4c9d76f-3be5-4cd1-ba0f-4ad4716ad105" class="bulleted-list"><li style="list-style-type:disc">‘<mark class="highlight-teal">displacements</mark>’ and ‘<mark class="highlight-teal">cylinders</mark>’ increase.</li></ul><ul id="d255d45d-a4f7-4445-bbd2-8851a2172665" class="bulleted-list"><li style="list-style-type:disc">‘<mark class="highlight-teal">mpg</mark>’ has a positive correlation with ‘<mark class="highlight-teal">year</mark>’, and this suggests that newer models tend to have higher ‘<mark class="highlight-teal">mpg</mark>’ than the older ones.</li></ul></details></li></ul><p id="6ba566be-305a-4ad5-8be7-809fc6cbbe3e" class="">
+</p><ul id="2c5f282d-fb19-4695-b8e4-2be84c0bc22b" class="toggle"><li><details open=""><summary>(f) Suppose that we wish to predict gas mileage (mpg) on the basis of the other variables. Do your plots suggest that any of the other variables might be useful in predicting mpg? Justify your answer.</summary><ul id="a9dbaa4e-9823-42ef-a1d9-9ea55d4197c3" class="bulleted-list"><li style="list-style-type:disc">Both the plots and the correlation data suggests we can predict mpg.</li></ul><ul id="8669ce2b-1d27-43c5-95a2-5918062e4351" class="bulleted-list"><li style="list-style-type:disc">An increase in the variables ‘<mark class="highlight-teal">displacements</mark>’, ‘<mark class="highlight-teal">cylinders</mark>’ and ‘<mark class="highlight-teal">weight</mark>’ will lead to a reduced ‘mpg’</li></ul><ul id="bf14bd81-af30-4769-9ca1-57240b24e665" class="bulleted-list"><li style="list-style-type:disc">Newer models ‘<mark class="highlight-teal">year</mark>’ tend to have higher ‘<mark class="highlight-teal">mpg</mark>’</li></ul></details></li></ul><p id="e502fe87-6254-4200-bbf6-8f5ed1440320" class="">
+</p><h3 id="bc7e92ce-8037-4810-b99a-55af550a9c78" class="">10. This exercise involves the Boston housing data set</h3><ul id="de1c0c46-42f1-4ce6-b14e-5d574db8cc02" class="toggle"><li><details open=""><summary><strong>(a) To begin, load in the Boston data set, The Boston data set is part of the ISLR2 library </strong></summary><pre id="97b9105a-e4d1-43c3-8e9c-b7f376c9c2ae" class="code"><code>library(ISLR2)
+head(boston)
+dim(Boston)
+?Boston</code></pre><figure id="c3aa2607-44fd-4141-a9aa-a0ed471fbdbf" class="image"><a href="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%206.png"><img style="width:703px" src="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%206.png"/></a></figure></details></li></ul><p id="3e3dbff2-155f-4a58-abe4-2829c222575d" class="">
+</p><ul id="ffd47226-1207-4450-83c7-776a7010252a" class="toggle"><li><details open=""><summary><strong> (b) Make some pairwise scatterplots of the predictors (columns) in this data set. Describe your findings.</strong></summary><pre id="4e1a58f1-97a1-4926-a84a-7e697c9c0a31" class="code"><code>pairs(~crim + nox + dis + tax + medv, data = Boston)</code></pre><figure id="37ba5e38-269d-43ad-8e40-2fa4a34c5caa" class="image"><a href="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%207.png"><img style="width:955px" src="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%207.png"/></a></figure><ul id="f9488a8d-f5fb-4c74-a449-83959dda40e0" class="bulleted-list"><li style="list-style-type:disc">‘<mark class="highlight-teal">crim</mark>’ seems to have a negative linear relationship with ‘<mark class="highlight-teal">medv</mark>’ and ‘<mark class="highlight-teal">dis</mark>’</li></ul><ul id="53b5c514-24a9-4269-968a-ba5ba86b34a7" class="bulleted-list"><li style="list-style-type:disc">‘<mark class="highlight-teal">nox</mark>’ also have a negative linear relationship with ‘<mark class="highlight-teal">dis</mark>’</li></ul><ul id="1432690f-e540-49a2-9d89-0ae71bdf06fc" class="bulleted-list"><li style="list-style-type:disc">‘<mark class="highlight-teal">dis</mark>’ has a positive linear relationship with ‘<mark class="highlight-teal">medv</mark>’.</li></ul><p id="284689e8-85b7-4acd-89c6-727bfb4de46b" class="">
+</p></details></li></ul><ul id="c7f693f4-95ef-4f63-aee5-0cc765b9cbb2" class="toggle"><li><details open=""><summary><strong>(c) Are any of the predictors associated with per capita crime rate?</strong></summary><pre id="ca7ac1f9-fa6a-4022-91a2-c2b1fc35fc12" class="code code-wrap"><code># Correlation coefficients between CRIM and all other variables.
+cor(Boston[-1],Boston$crim)</code></pre><table id="4b4445f0-0684-4567-8bcc-4f2624097189" class="simple-table"><tbody><tr id="2c803ed4-7d70-4c48-97a6-9ca75283ba6c"><td id="juHZ" class="">zn</td><td id="]H|q" class="">-0.20046922</td></tr><tr id="508c221c-04cc-4ab2-bc7e-e9e84f3d01ab"><td id="juHZ" class="">indus</td><td id="]H|q" class="">0.40658341</td></tr><tr id="31b17f53-1065-4555-8985-b6d04ac48686"><td id="juHZ" class="">chas</td><td id="]H|q" class="">-0.05589158</td></tr><tr id="268f76cf-8029-4a94-8cee-0b49f95077ea"><td id="juHZ" class="">nox</td><td id="]H|q" class="">0.42097171</td></tr><tr id="77ad7e2f-f404-4033-9514-295e3d100423"><td id="juHZ" class="">rm</td><td id="]H|q" class="">-0.21924670</td></tr><tr id="d43fcc50-e6b8-4ccf-af02-7acf29ce0bcf"><td id="juHZ" class="">age</td><td id="]H|q" class="">0.35273425</td></tr><tr id="50f4e35a-30f1-40be-8012-6a87a495b696"><td id="juHZ" class="">dis  </td><td id="]H|q" class=""> -0.37967009</td></tr><tr id="40857b3e-15df-4c92-87d6-8af31871b6c0"><td id="juHZ" class="">rad</td><td id="]H|q" class="">0.62550515</td></tr><tr id="a203fedc-b823-40c3-a090-9a184ce76dc1"><td id="juHZ" class="">tax</td><td id="]H|q" class="">0.58276431</td></tr><tr id="22293281-24bf-4842-bd5a-0140876cffd7"><td id="juHZ" class="">ptratio</td><td id="]H|q" class="">0.28994558</td></tr><tr id="bd32442c-3d60-4079-8d65-433ab55078c5"><td id="juHZ" class="">black</td><td id="]H|q" class="">-0.38506394</td></tr><tr id="ff03f254-b08b-4e58-99ba-1a61c614d49b"><td id="juHZ" class="">lstat</td><td id="]H|q" class="">0.45562148</td></tr><tr id="395a0ac6-2fa2-4e7a-9a86-9d8f6fbe405d"><td id="juHZ" class="">medv</td><td id="]H|q" class="">-0.38830461</td></tr></tbody></table><ul id="9266eaff-d819-4e7a-a3c4-bb335d83be4c" class="bulleted-list"><li style="list-style-type:disc">There are some correlations between ‘<mark class="highlight-teal">crim</mark>’ and other variables, but they are not as strong as some of the relationships we observed in the Auto dataset.</li></ul><ul id="2c06ba14-b63b-45f8-b884-79908cbf4425" class="bulleted-list"><li style="list-style-type:disc">‘<mark class="highlight-teal">crim</mark>’ has negative linear relationship with ‘<mark class="highlight-teal">medv</mark>’, ‘<mark class="highlight-teal">dis</mark>’, and ‘<mark class="highlight-teal">black</mark>’</li></ul><ul id="f408434c-c288-4f8a-92c1-79cbabdb8cb7" class="bulleted-list"><li style="list-style-type:disc">‘<mark class="highlight-teal">crim</mark>’ has a positive linear relationship with ‘<mark class="highlight-teal">indus</mark>’, ‘<mark class="highlight-teal">nox</mark>’, ‘rad’ and ‘<mark class="highlight-teal">tax</mark>’</li></ul><p id="68fde73c-5f3d-479b-adfa-a6f00e8bb6c5" class="">
+</p><p id="25906395-fb4d-4440-b9c7-800d6a88e30a" class="">
+</p></details></li></ul><ul id="3f3b76f6-a564-4280-9bcf-5bb06afe60fa" class="toggle"><li><details open=""><summary><strong>(d) Do any of the census tracts of Boston appear to have particularly
+high crime rates? Tax rates? Pupil-teacher ratios? Comment on
+the range of each predictor.</strong></summary><ol type="1" id="71199c40-4aa6-449f-9ed4-f1e6b565bdc2" class="numbered-list" start="1"><li><strong>High crime rate</strong>:</li></ol><pre id="e87d40ed-82f9-41b9-8668-babd18c21e14" class="code"><code>range(Boston$crim)  # 0.00632, 88.97620
+mean(Boston$crim) # 3.613524
+sd(Boston$crim) # 8.601545
+
+# Suburbs with crime rate higher than 2 s.d from the mean(higher than 95% of suburbs).
+High.Crime &lt;- Boston[which(Boston$crim &gt; mean(Boston$crim) + 2*sd(Boston$crim)), ]</code></pre><ul id="134284a6-15c7-44c9-903c-fbd3115828bf" class="bulleted-list"><li style="list-style-type:disc">There are 16 suburbs with a crime rate higher than 95% of the other suburbs.</li></ul><ul id="5c7e127f-5f48-4f32-a35f-6aa97bba886c" class="bulleted-list"><li style="list-style-type:disc">Some suburbs have extremely high rates of crime (5 - 8 standard deviation from the mean)</li></ul><ul id="4b25413a-1e4e-476c-a4d8-8019ac28cdac" class="bulleted-list"><li style="list-style-type:disc">The range is very wide, it goes from a rate of near zero to 89</li></ul><p id="c7b4cd1f-8364-448f-861b-3d083efc4229" class="">
+</p><ol type="1" id="6fd50618-04c0-4343-8d5a-17beb2487061" class="numbered-list" start="2"><li><strong>High Tax rates:</strong></li></ol><pre id="187e59b3-f474-4cac-90b6-fbcda0858017" class="code"><code>range(Boston$tax) # 187, 711
+mean(Boston$tax) # 408.2372
+sd(Boston$tax) # 168.5371
+
+High.Tax &lt;- Boston[which(Boston$tax &gt; mean(Boston$tax) + 2*sd(Boston$tax)), ]</code></pre><ul id="eb978e5a-aafb-4475-9018-791e4a4e05d3" class="bulleted-list"><li style="list-style-type:disc">There is no suburbs with a tax rate higher than 2 * standard deviation from the mean. This seems reasonable as property tax rate are designed not to be extremely drastic</li></ul><ul id="ced27208-10f5-49fc-83f0-9d4e7ef63f1f" class="bulleted-list"><li style="list-style-type:disc">Some suburbs do have tax rates higher than 1 * standard deviation(higher than 65% of suburbs) from the mean</li></ul><ul id="4534bfb4-19cf-4321-bdb4-fa8cb10f9d2c" class="bulleted-list"><li style="list-style-type:disc">The range is narrower than the crime rate.</li></ul><p id="adc6c3b3-ecc6-437d-acd2-807dab3e35aa" class="">
+</p><ol type="1" id="dafd6cc5-a981-469f-826d-cb357213b12a" class="numbered-list" start="3"><li><strong>High pupil-teacher ratios:</strong></li></ol><pre id="7c23f836-52f1-4d3f-b25c-a13b1e04b233" class="code code-wrap"><code>range(Boston$ptratio) # 12.6, 22.0
+
+High.PT &lt;- Boston[which(Boston$ptratio &gt;mean(Boston$ptratio) + 2 *sd(Boston$ptratio)),]</code></pre><ul id="6e8790b3-8e80-424e-b8d0-42f2262b78e4" class="bulleted-list"><li style="list-style-type:disc">There are no suburbs with a high pupil to teacher ratio, and this is a reasonable as educational laws limit the numbers of teacher and students per class/school.</li></ul><ul id="c8e04fad-8fef-4ac5-94e0-fcd78ab74416" class="bulleted-list"><li style="list-style-type:disc">Some pupil teacher ratios are higher than 1 standard deviation</li></ul><ul id="cc81a485-8b43-471e-a8b9-2770b55d42c8" class="bulleted-list"><li style="list-style-type:disc">The range is quite narrow, and all pupil teacher ratios lie within 2 s.d of the mean</li></ul><p id="433fd80e-9c67-4e68-84f4-f146b88dd967" class="">
+</p></details></li></ul><ul id="12cf1065-b8d9-417d-a1a3-9c06dc5d7b53" class="toggle"><li><details open=""><summary><strong>(e) How many of the census tracts in this data set bound the Charles river?</strong></summary><ul id="e4882b1e-552c-4605-beb2-b94c04bcbb4e" class="bulleted-list"><li style="list-style-type:disc">35 Suburbs/towns bound the Charles river</li></ul></details></li></ul><p id="fa135c53-0d3f-41ba-a6b0-3e7cc0adcfd8" class="">
+</p><ul id="76a09071-ecdd-4f65-b89c-bb7c67bf7aee" class="toggle"><li><details open=""><summary><strong>(f) What is the median pupil-teacher ratio among the towns in this data set?</strong></summary><ul id="0ca26d79-0c05-4f17-be2d-29815a74ff49" class="bulleted-list"><li style="list-style-type:disc">19.05</li></ul></details></li></ul><p id="37d612a4-d00a-4ab7-9037-3149add0f9bc" class="">
+</p><ul id="396dad0d-579c-48a1-9290-d2542e2407ca" class="toggle"><li><details open=""><summary><strong>(g) Which census tract of Boston has lowest median value of owner occupied homes? What are the values of the other predictors for that census tract, and how do those values compare to the overall ranges for those predictors? Comment on your findings</strong></summary><pre id="ef67b4f1-77b6-4b2d-bb59-720882b1aee3" class="code"><code>which(Boston$medv == min(Boston$medv)) # 399 &amp; 406</code></pre><ul id="6435c931-01c7-4324-9aaa-88203b4982e0" class="bulleted-list"><li style="list-style-type:disc">There are two suburbs (399 &amp; 406) that have the lowest median property values</li></ul><figure id="561b983e-4498-4648-a446-4a9034006e0f" class="image"><a href="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%208.png"><img style="width:800px" src="Exercises%207ff6ebd083cc4d49b42cd0588d32e294/Untitled%208.png"/></a></figure><ul id="419c834d-ffce-494b-bbb8-6674a31dc967" class="bulleted-list"><li style="list-style-type:disc">‘<mark class="highlight-teal">crim</mark>’ is more than 2 * s.d above the mean — very high crime rates in this suburb. Both ‘<mark class="highlight-teal">ptratio</mark>’ and ‘<mark class="highlight-teal">lstat</mark>’ are close to their maximum values</li></ul></details></li></ul><p id="6b6c8a82-63d0-4192-ab0c-26c503b0a65f" class="">
+</p><ul id="10186be9-baa8-4574-b1a5-d6b09d4e660f" class="toggle"><li><details open=""><summary><strong>(h) In this data set, how many of the census tracts average more than seven rooms per dwelling? More than eight rooms per dwelling? Comment on the census tracts that average more than eight rooms per dwelling.</strong></summary><pre id="89e0fdd3-33c0-479d-a810-2e2aa144ee19" class="code"><code>sum(Boston$rm &gt; 7) # 64
+sum(Boston$rm &gt; 8) # 13
+
+summary(Boston)
+summary(subset(Boston, rm &gt; 8))</code></pre><ul id="ea6ce4b7-2391-43cc-bf61-d947392495f9" class="bulleted-list"><li style="list-style-type:disc">Relatively low ‘<mark class="highlight-teal">crim</mark>’, ‘<mark class="highlight-teal">lstat</mark>’ and much higher ‘<mark class="highlight-teal">medv</mark>’ when comparing the IQR range</li></ul><p id="a70437bc-a0b2-4fb9-b9dc-d14f6cbbfebe" class="">
+</p></details></li></ul></div></article></body></html>
